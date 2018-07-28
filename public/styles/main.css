@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.hero {
+  background-image: url("https://www.rei.com/adventures/assets/adventures/images/trip/core/northamerica/aza_hero");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
 /*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {
