@@ -2,7 +2,7 @@ const express = require('express');
 const router = express();
 
 //CONTROLLER MODULES
-
+const registrationsController = require('../controllers/registrationController');
 
 //GLOBAL ROUTES
 router.route('/')
@@ -11,7 +11,9 @@ router.route('/')
 router.route('/about')
   .get( (req, res) => res.render('pages/about'));
 
-
+router.route('/registration')
+  .get(registrationsController.new)
+  .post(registrationsController.create);
 
 
 
