@@ -11,7 +11,7 @@ function registrationCreate( req, res){
       console.log('We have created a new user:', user);
       res.redirect('/');
     })
-    .catch( () => res.status(500).redirect('/registrations/new'));
+    .catch( () => res.status(500).redirect('/registration/new'));
 }
 
 module.exports = {

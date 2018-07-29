@@ -20,6 +20,7 @@ app.use(expressLayouts);
 app.set('views', `${__dirname}/views`); //this is the default so not really necessary to include
 
 // STATIC FILES
+app.use('/styles', express.static(__dirname + '/public/styles'));
 app.use(express.static(`${__dirname}/public`));
 
 //MIDDLE-WARE
