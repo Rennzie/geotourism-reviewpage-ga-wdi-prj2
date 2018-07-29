@@ -6,7 +6,7 @@ function registrationNew( req, res ){
 
 function registrationCreate( req, res){
   User
-    .create( res.body )
+    .create( req.body )
     .then( user => {
       console.log('We have created a new user:', user);
       res.redirect('/');

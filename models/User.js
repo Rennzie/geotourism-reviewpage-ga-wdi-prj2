@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-//const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
   profilePic: String,
@@ -13,12 +13,38 @@ const userSchema = new mongoose.Schema({
   followedSites: [ { type: String } ]
 });
 
-//PASSWORD HASHING
+//Hashed password varification
+userSchema.methods.validatePassword = function(password){
+  //compare the password from the form against the has in the db
+  return bcrypt.compareSync(password, this.password);
+};
 
 //PASSWORD CONFIRMATION VALIDATION
+userSchema.virtual('passwordConfirmation')
+  .set(function(passwordConfirmation){
+    this._passwordConfirmation = passwordConfirmation;
+  });
 
 //Pre validation hooks
+userSchema.pre('validation', function(next){
+  console.log('Prevalidation hook fired');
+  if(this.passwordConfirmation !== this.password){
+    console.log('Passwords did not match');
+    this.invalidate('passwordConfirmation', 'Does not match');
+  }
+  next();
+});
 
 //Pre save hooks
+userSchema.pre('save', function(next){
+  console.log('Pre save fired');
+  this.password = bcrypt.hashSync(this.password, 8);
+  next();
+});
+
+userSchema.post('save', function(next){
+  console.log('Password was hashed', this.password);
+  next();
+});
 
 module.exports = mongoose.model('User', userSchema);
