@@ -11,7 +11,13 @@
             <a class='navbar-item' href="/geoSites/index" >Geo Sites</a>
           </div>
           <div class="navbar-end">
-            <a class='navbar-item' href="/" >Login/Sign Up</a>            
+            <% if(!locals.isLoggedIn){%>
+              <a class='navbar-item' href="/" >Login/Sign Up</a>
+            <%} else{%>
+              <form action="/session" method="POST">
+                <a class="navbar-item" href="/session/delete">Logout</a>
+              </form>
+            <%}%>
           </div>
       </div>
   </div>

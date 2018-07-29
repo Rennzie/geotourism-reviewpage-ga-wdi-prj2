@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
+const methodOverride = require('method-override');
 
 //INTERNAL MODULES
 const { PORT, DB_URI } =  require('./config/environments.js');
@@ -29,6 +30,14 @@ app.use(express.static(`${__dirname}/public`));
 app.use(morgan('dev')); //morgan will log HTTP request info to the console
 app.use(bodyParser.urlencoded({extend: true})); //adds req.body
 
+app.use(methodOverride((req) => {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    const method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+}));
+
 //SESSION & COOKIES
 app.use(session({
   secret: 'ASJHDFlasdfhauhkjkhz.afdqewhf3if',
@@ -41,6 +50,8 @@ app.use((req, res, next) => {
   User
     .findById(req.session.userId)
     .then(user => {
+      console.log('The logged in user is: ', user);
+      if(!user) req.session.regenerate(() => res.redirect('/session/new'));
       //we are logged in and write below to the locals
       res.locals.user = user;
       res.locals.isLoggedIn = true;

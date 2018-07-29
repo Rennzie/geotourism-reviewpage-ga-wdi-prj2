@@ -24,7 +24,10 @@ router.route('/session/new')
   .get(sessionController.new);
 
 router.route('/session')
-  .post(sessionController.create);
+  .post(sessionController.create);     //to create a new user cookie
+
+router.route('/session/delete')
+  .get(sessionController.delete); //to regenerate a cookie
 
 
 
