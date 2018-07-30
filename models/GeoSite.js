@@ -5,7 +5,9 @@ const reviewSchema = new mongoose.Schema({
   rating: { type: Number, default: 0 },
   content: { type: String, required: true },
   upVotes: { type: Number, default: 0 },
-  downVotes: { type: Number, default: 0 }
+  downVotes: { type: Number, default: 0 },
+  accessibility: String,
+  tourGuideAvailability: Boolean
 });
 
 const geoSiteSchema = new mongoose.Schema({

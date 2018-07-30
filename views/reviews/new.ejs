@@ -1,0 +1,30 @@
+<div class="container">
+  <form action="/album/<%=geoSite.id%>/review" method="POST">
+
+    <input type="hidden" name="user" value="<%=locals.userId%>">
+
+    <div class="field">
+      <label class="label" for="rating">Rating</label>
+      <div class="control">
+        <input class="input" name="rating" type="number" placeholder='3'>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="content">Review</label>
+      <div class="control">
+        <textarea class="textarea" name="content" placeholder="This was was fantastice, cannot recommend it enough" rows="8" cols="80"></textarea>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link">Review</button>
+      </div>
+      <div class="control">
+        <a href="/geoSites/<%=geoSite.id%>" class="button is-text">Cancel</a>
+      </div>
+    </div>
+
+  </form>
+</div>

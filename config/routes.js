@@ -43,8 +43,11 @@ router.route('/geoSites/:id')
   .get(geoSiteController.show);
 
 //  --> Site Reviews
-router.route('siteReviews/new')
+router.route('/geoSites/:siteId/review/new')
   .get(reviewController.new);
+
+// router.route('/geoSite/:siteId/review')
+//   .post(reviewController.create);
 
 
 
