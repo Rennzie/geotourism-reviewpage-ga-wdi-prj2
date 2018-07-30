@@ -1,0 +1,100 @@
+<div class="container">
+  <%# title and rating (header) %>
+  <div class="level">
+      <div class="level-item"> <h1 class="title is-1"><%=geoSite.name%></h1> </div>
+      <div class="level-item"> <p class="header"> Star Rating ⭐️</p> </div>
+  </div>
+
+  <%# Cover photo and google map level %>
+  <div class="level columns">
+    <div class="column is-half">
+      <img class="image show-image" src="<%=geoSite.coverPic%>">
+    </div>
+    <div class="column is-half">
+      <a href="#">Google Map Link</a>
+    </div>
+  </div>
+
+  <hr>
+
+  <%# all other site information %>
+  <div class="level columns">
+
+    <%# info and desctiption %>
+    <div class="column is-half">
+      <%# Country and region %>
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <p class="header">Country: <%=geoSite.country%></p>
+          </div>
+          <div class="level-item">
+            <p class="header">Region: <%=geoSite.region%></p>
+          </div>
+        </div>
+      </div>
+
+      <%# Age and Period %>
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <p class="header">Age: <%=geoSite.age%></p>
+          </div>
+          <div class="level-item">
+            <p class="header">Period: <%=geoSite.period%></p>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <%# description %>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+      <hr>
+
+      <div class="columns">
+        <div class="column is-multiline">
+          <span class="tag is-medium is-black">Black</span>
+          <span class="tag is-medium is-dark">Dark</span>
+          <span class="tag is-medium is-light">Light</span>
+          <span class="tag is-medium is-white">White</span>
+          <span class="tag is-medium is-primary">Primary</span>
+          <span class="tag is-medium is-link">Link</span>
+          <span class="tag is-medium is-info">Info</span>
+          <span class="tag is-medium is-success">Success</span>
+          <span class="tag is-medium is-warning">Warning</span>
+          <span class="tag is-medium is-danger">Danger</span>
+        </div>
+      </div>
+
+    </div>
+
+    <%# additional photos %>
+    <div class="column is-half">
+      <button class="is-hidden-desktop is-info" name="button">View More Photos</button>
+      <%# do a forEach() here %>
+      <div class="columns is-hidden-mobile is-centered">
+        <div class="column is-start is-multiline">
+
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <hr>
+</div>

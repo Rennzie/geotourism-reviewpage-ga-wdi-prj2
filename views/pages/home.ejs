@@ -7,8 +7,10 @@
       <h2 class="subtitle">
         Seen it? Rocked? Review it!
       </h2>
-      <a href="/registration/new"> Sign Up</a>
-      <a href="/session/new"> Login</a>
+      <% if(!locals.isLoggedIn){ %>
+        <a href="/registration/new"> Sign Up</a>
+        <a href="/session/new"> Login</a>
+      <% } %>
     </div>
   </div>
 </section>

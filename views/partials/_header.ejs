@@ -2,21 +2,28 @@
   <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <img src="noun_Fog mountain_1659670.png" alt="">
+            <img src="/noun_Fog mountain_1659670.png" alt="">
           </a>
         </div>
         <div class="navbar-menu">
           <div class="navbar-start">
             <a class='navbar-item' href="/about" >About Us</a>
-            <a class='navbar-item' href="/geoSites/index" >Geo Sites</a>
+            <a class='navbar-item' href="/geoSites" >Geo Sites</a>
+            <a class='navbar-item' href="/siteReviews/new" >Review Site</a>
+            <% if(locals.isLoggedIn){%>
+              <a class='navbar-item' href="/geoSites/new" >Add New Site</a>
+            <%}%>
           </div>
           <div class="navbar-end">
             <% if(!locals.isLoggedIn){%>
               <a class='navbar-item' href="/" >Login/Sign Up</a>
             <%} else{%>
-              <form action="/session" method="POST">
-                <a class="navbar-item" href="/session/delete">Logout</a>
-              </form>
+              <a href="/profile">
+                <figure class="avatar-container image is-48x48">
+                  <img class="avatar" src="<%=locals.user.profilePic %>">
+                </figure>
+              </a>
+              <a class="navbar-item" href="/session/delete">Logout</a>
             <%}%>
           </div>
       </div>

@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="columns ">
+    <div class="column">
+
+      <% geoSites.forEach( geoSite => { %>
+        <div class="level">
+          <div class="level-left">
+            <a href="/geoSites/<%=geoSite.id%>">
+              <div class="level-item">
+                <figure class="image is-250x250">
+                  <img src="<%=geoSite.coverPic%>">
+                </figure>
+              </div>
+
+              <div class="level">
+                <div class="level-item has-text-centered">
+                 <div>
+                   <p class="title is-3"><%= geoSite.name %></p>
+                   <p class="heading">Country: <%= geoSite.country %></p>
+                 </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="level-right">
+            <div class="level">
+              <div class="level-item has-text-centered">
+                <div >
+                  <a href="<%=geoSite.mapLink%>">Google Maps</a>
+                  <p class="subtitle">Star Rating ⭐️</p>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      <% }) %>
+
+    </div>
+  </div>
+</div>

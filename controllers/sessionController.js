@@ -10,11 +10,9 @@ function sessionCreate( req, res ){
     .then(user => {
       if(!user || !user.validatePassword(req.body.password)){
         console.log('the password is: ', req.body.password);
-        console.log(user);
         console.log('No username or passwords dont match');
         res.status(401).render('sessions/new', {message: 'Try that again'});
       }else{
-        console.log(user);
         req.session.userId = user.id;
         res.redirect('/');
       }
