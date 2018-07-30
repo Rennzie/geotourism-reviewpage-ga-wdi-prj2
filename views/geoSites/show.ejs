@@ -55,16 +55,16 @@
 
       <div class="columns">
         <div class="column is-multiline">
-          <span class="tag is-medium is-black">Black</span>
-          <span class="tag is-medium is-dark">Dark</span>
-          <span class="tag is-medium is-light">Light</span>
-          <span class="tag is-medium is-white">White</span>
-          <span class="tag is-medium is-primary">Primary</span>
-          <span class="tag is-medium is-link">Link</span>
-          <span class="tag is-medium is-info">Info</span>
-          <span class="tag is-medium is-success">Success</span>
-          <span class="tag is-medium is-warning">Warning</span>
-          <span class="tag is-medium is-danger">Danger</span>
+          <span class="tag is-large is-dark">Black</span>
+          <span class="tag is-large is-dark">Dark</span>
+          <span class="tag is-large is-dark">Light</span>
+          <span class="tag is-large is-dark">White</span>
+          <span class="tag is-large is-dark">Primary</span>
+          <span class="tag is-large is-dark">Link</span>
+          <span class="tag is-large is-dark">Info</span>
+          <span class="tag is-large is-dark">Success</span>
+          <span class="tag is-large is-dark">Warning</span>
+          <span class="tag is-large is-dark">Danger</span>
         </div>
       </div>
 
@@ -97,5 +97,18 @@
 
   </div>
   <hr>
-  <a class="button is-large is-success" href="/geoSites/<%=geoSite.id%>/review/new"> Add a review</a>
+
+  <%# REVIEWS HERE %>
+  <% include ./partials/_reviews %>
+
+  <hr>
+      <form action="/geoSites/<%=geoSite.id%>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button  class="delete"></button>
+      </form>
+
+      <a class="button is-text"href="/geoSites/<%=geoSite.id%>/edit"> Edit</a>
+
+      <%if(locals.isLoggedIn && locals.user.id === review.reviewedBy.id){%>
+  <%}%>
 </div>

@@ -5,6 +5,8 @@ mongoose.connect(DB_URI);
 
 const GeoSite = require('../models/geoSite');
 
+GeoSite.collection.drop();
+
 GeoSite
   .create([
     {
@@ -57,7 +59,7 @@ GeoSite
       country: 'Australia',
       mapLink: 'https://www.google.co.uk/maps/search/ayers+rock+geological+age/@-25.3456562,131.0196362,14z/data=!3m1!4b1'
     }
-  ])  
+  ])
   .then(sites => console.log(`Created ${sites.length}`))
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());

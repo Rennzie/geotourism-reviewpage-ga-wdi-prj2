@@ -54,15 +54,22 @@ router.route('/geoSites/new')
   .get(secureRoute, geoSiteController.new);  //Add a new site
 
 router.route('/geoSites/:id')
-  .get(geoSiteController.show);
+  .get(geoSiteController.show)
+  .delete(geoSiteController.delete);
 
 //  --> Site Reviews
 router.route('/geoSites/:siteId/review/new')
   .get(secureRoute, reviewController.new);
 
-// router.route('/geoSite/:siteId/review')
-//   .post(reviewController.create);
+router.route('/geoSite/:siteId/review')
+  .post(secureRoute, reviewController.create);
 
+router.route('/geoSites/:siteId/review/:reviewId')
+  .delete(secureRoute, reviewController.delete)
+  .put(secureRoute, reviewController.update);
+
+router.route('/geoSites/:siteId/review/:reviewId/edit')
+  .get(secureRoute, reviewController.edit);
 
 
 

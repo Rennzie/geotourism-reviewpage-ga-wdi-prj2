@@ -50,7 +50,7 @@ app.use((req, res, next) => {
   User
     .findById(req.session.userId)
     .then(user => {
-      console.log('The logged in user is: ', user);
+      console.log('The logged in user is: ', user.userName);
       if(!user) req.session.regenerate(() => res.redirect('/session/new'));
       //we are logged in and write below to the locals
       res.locals.user = user;

@@ -9,8 +9,8 @@ function sessionCreate( req, res ){
     .findOne({userName: req.body.userName})
     .then(user => {
       if(!user || !user.validatePassword(req.body.password)){
-        console.log('the password is: ', req.body.password);
-        console.log('No username or passwords dont match');
+        // console.log('the password is: ', req.body.password);
+        // console.log('No username or passwords dont match');
         res.status(401).render('sessions/new', {message: 'Try that again'});
       }else{
         req.session.userId = user.id;
