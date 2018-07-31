@@ -18,17 +18,17 @@
       </div>
     </div>
 
+    <div class="media-right">
+    <p class="sub-title">Rating: <%=review.ratingSymbol%></p>
     <%if(locals.isLoggedIn && locals.user.id === review.reviewedBy.id){%>
-      <div class="media-right">
         <form action="/geoSites/<%=geoSite.id%>/review/<%=review.id%>" method="POST">
           <input type="hidden" name="_method" value="DELETE">
           <button  class="delete"></button>
         </form>
 
         <a class="button is-text"href="/geoSites/<%=geoSite.id%>/review/<%=review.id%>/edit"> Edit</a>
-      </div>
-
     <%}%>
+    </div>
   </article>
 
   <hr>

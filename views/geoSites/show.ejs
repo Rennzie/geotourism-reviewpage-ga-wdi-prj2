@@ -2,7 +2,9 @@
   <%# title and rating (header) %>
   <div class="level">
       <div class="level-item"> <h1 class="title is-1"><%=geoSite.name%></h1> </div>
-      <div class="level-item"> <p class="header"> Star Rating ⭐️</p> </div>
+      <div class="level-item">
+        <p class="sub-title">Rating: <%=geoSite.averageRating%></p>
+      </div>
   </div>
 
   <%# Cover photo and google map level %>
@@ -89,14 +91,14 @@
 
   <hr>
 
-    <% if(locals.user.id === geoSite.createdBy.id){%>
+    <% if(locals.isLoggedIn && locals.user.id === geoSite.createdBy.id){%>
       <form action="/geoSites/<%=geoSite.id%>" method="POST">
         <input type="hidden" name="_method" value="DELETE">
         <button  class="delete"></button>
       </form>
     <%}%>
 
-    <%if((locals.user.id === geoSite.createdBy.id || locals.user.isGeologist) && locals.isLoggedIn){%>
+    <%if( locals.isLoggedIn && (locals.user.id === geoSite.createdBy.id || locals.user.isGeologist) ){%>
       <a class="button is-text"href="/geoSites/<%=geoSite.id%>/edit"> Edit</a>
     <%}%>
 </div>
