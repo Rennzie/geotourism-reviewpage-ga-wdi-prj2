@@ -17,7 +17,7 @@
             <% if(!locals.isLoggedIn){%>
               <a class='navbar-item' href="/" >Login/Sign Up</a>
             <%} else{%>
-              <a href="/profile">
+              <a href="/userprofile/<%=locals.user.id%>">
                 <figure class="avatar-container image is-48x48">
                   <img class="avatar" src="<%=locals.user.profilePic %>">
                 </figure>

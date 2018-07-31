@@ -10,8 +10,9 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   type: {type: String, default: 'user'},  //will user this in future to give moderator and admin permissions
   followedUser: [ { type: String } ],
-  followedSites: [ { type: String } ]
-});
+  followedSites: [ { type: String } ],
+  isGeologist: {type: Boolean, default: false}
+}, { timestamps: true });
 
 //Hashed password varification
 userSchema.methods.validatePassword = function(password){
@@ -42,9 +43,8 @@ userSchema.pre('save', function(next){
   next();
 });
 
-userSchema.post('save', function(next){
+userSchema.post('save', function(){
   console.log('Password was hashed', this.password);
-  next();
 });
 
 module.exports = mongoose.model('User', userSchema);

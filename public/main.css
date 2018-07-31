@@ -12,6 +12,18 @@
   background-repeat: no-repeat;
   background-size: cover; }
 
+.show-image {
+  width: 100%;
+  height: auto; }
+
+.other-images {
+  width: 30%;
+  height: auto; }
+
+.index-image {
+  width: 100%;
+  height: auto; }
+
 /*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {

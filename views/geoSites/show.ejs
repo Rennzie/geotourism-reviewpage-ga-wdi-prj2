@@ -53,18 +53,13 @@
 
       <hr>
 
+      <!-- rocktype tags -->
       <div class="columns">
         <div class="column is-multiline">
-          <span class="tag is-large is-dark">Black</span>
-          <span class="tag is-large is-dark">Dark</span>
-          <span class="tag is-large is-dark">Light</span>
-          <span class="tag is-large is-dark">White</span>
-          <span class="tag is-large is-dark">Primary</span>
-          <span class="tag is-large is-dark">Link</span>
-          <span class="tag is-large is-dark">Info</span>
-          <span class="tag is-large is-dark">Success</span>
-          <span class="tag is-large is-dark">Warning</span>
-          <span class="tag is-large is-dark">Danger</span>
+          <% geoSite.rockTypes.forEach(rockType => {%>
+            <span class="tag is-large is-light"><%=rockType%></span>
+          <%})%>
+
         </div>
       </div>
 
@@ -77,18 +72,9 @@
       <div class="columns is-hidden-mobile is-centered">
         <div class="column is-start is-multiline">
 
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
-            <img class="image is-128x128 is-marginless" src="<%=geoSite.coverPic%>">
+          <% geoSite.images.forEach(image => {%>
+            <img class="image other-images" src="<%=image%>">
+          <%})%>
 
         </div>
 
@@ -102,13 +88,15 @@
   <% include ./partials/_reviews %>
 
   <hr>
+
+    <% if(locals.user.id === geoSite.createdBy.id){%>
       <form action="/geoSites/<%=geoSite.id%>" method="POST">
         <input type="hidden" name="_method" value="DELETE">
         <button  class="delete"></button>
       </form>
+    <%}%>
 
+    <%if((locals.user.id === geoSite.createdBy.id || locals.user.isGeologist) && locals.isLoggedIn){%>
       <a class="button is-text"href="/geoSites/<%=geoSite.id%>/edit"> Edit</a>
-
-      <%if(locals.isLoggedIn && locals.user.id === review.reviewedBy.id){%>
-  <%}%>
+    <%}%>
 </div>

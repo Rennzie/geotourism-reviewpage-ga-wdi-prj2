@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="level">
+
+  </div>
+  <div class="columns">
+
+    <div class="column is-one-third">
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-96x96">
+            <img src="<%=user.profilePic%>">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong><%=user.userName%></strong>
+              <br>
+              <small><%=user.firstName%> <%= user.surname%></small>
+            </p>
+          </div>
+        </div>
+      </article>
+      <p class="header"><strong>Member since:</strong> ####</p>
+      <%if(user.isGeologist){%>
+        <p class="header"> Is a geoloigst by trade ⚒</p>
+      <%}else{%>
+        <p class="header"> Is just a tourist 📸</p>
+      <%}%>
+
+      <hr>
+
+      <p class="header">##   <strong>  Reviews</strong> </p>
+      <p class="header">##   <strong>  Followers</strong> </p>
+      <p class="header">##   <strong>  Up Voted Reviews</strong> </p>
+
+      <hr>
+
+      <a class="button is-text"href="/userprofile/<%=user.id%>/edit">Edit Profile</a>
+    </div>
+
+    <div class="column is-two-third">
+
+      <!-- USERS FOLLOWED SITES -->
+      <div class="level">
+        <div class="level-item">
+
+          <p class="header"><%=user.userName%> has not followed any geoSites yet.
+            <a class=" is-text"href="/userprofile/<%=user.id%>/edit">Click</a>
+            to see all the sites
+          </p>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- USERS REVIEWED SITES -->
+      <div class="level">
+        <div class="level-item">
+          <p class="header"><%=user.userName%> has not reviewd any geoSites yet.
+            <a class=" is-text"href="/userprofile/<%=user.id%>/edit">Click</a>
+            to see all the sites
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

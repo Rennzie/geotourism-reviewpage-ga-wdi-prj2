@@ -1,0 +1,80 @@
+<div class="container">
+  <form action="/geoSites/<%=geoSite.id%>" method="POST">
+
+    <div class="field">
+      <label class="label" for="coverPic">Cover Image (url req)</label>
+      <div class="control">
+        <input class="input" name="coverPic" type="text" value="<%=geoSite.coverPic%>">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="name">Name (req)</label>
+      <div class="control">
+        <input class="input" name="name" type="text" value="<%=geoSite.name%>">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="country">Country (req)</label>
+      <div class="control">
+        <input class="input" name="country" type="text" value="<%=geoSite.country%>">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="age">Age (Number)</label>
+      <div class="control">
+        <input class="input" name="age" type="number" value="<%=geoSite.age%>">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="description">Description</label>
+      <div class="control">
+        <textarea class="textarea" name="description" rows="8" cols="80" ><%=geoSite.description%></textarea>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="rockTypes">Rock Types (comma seperated)</label>
+      <div class="control">
+        <input class="input" name="rockTypes" type="text" value="<%=geoSite.rockTypes%>">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="region">Region</label>
+      <div class="control">
+        <input class="input" name="region" type="text" value="<%=geoSite.region%>">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="images">Additional Images (urls comma seperated)</label>
+      <div class="control">
+        <input class="input" name="images" type="text" value="<%=geoSite.images%>">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="mapLink">Google Earth Map Link</label>
+      <div class="control">
+        <input class="input" name="mapLink" type="text" value="<%=geoSite.mapLink%>">
+      </div>
+    </div>
+
+
+    <input type="hidden" name="_method" value="PUT">
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link">Update</button>
+      </div>
+      <div class="control">
+        <a href="/" class="button is-text">Cancel</a>
+      </div>
+    </div>
+
+  </form>
+</div>

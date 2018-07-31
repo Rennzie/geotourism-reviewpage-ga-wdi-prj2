@@ -31,13 +31,31 @@ function geoSiteShow( req, res ){
   const geoSiteId = req.params.id;
   GeoSite
     .findById(geoSiteId)
+    .populate('createdBy')
     .populate('reviews.reviewedBy')
     .then( geoSite =>  res.render('geoSites/show', { geoSite }) );
 }
 
+function geoSiteEdit(req, res){
+  GeoSite
+    .findById(req.params.id)
+    .then(geoSite => {
+      res.render('geoSites/edit', { geoSite });
+    });
+}
+
+function geoSiteUpdate( req, res ){
+  req.body.images = req.body.images.split(',');
+  req.body.rockTypes = req.body.rockTypes.split(',');
+  GeoSite
+    .findByIdAndUpdate(req.params.id, req.body)
+    .then(geoSite => res.redirect(`/geoSites/${geoSite.id}`))
+    .catch(err => console.log(err));
+}
+
 function geoSiteDelete( req, res ){
   GeoSite
-    .findByIdAndDelete(req.params.id)
+    .findByIdAndDelete(req.params.id, req.body)
     .then(res.redirect('/geoSites'))
     .catch(err => res.status(404).send(err));
 }
@@ -47,5 +65,7 @@ module.exports = {
   index: geoSiteIndex,
   create: geoSiteCreate,
   show: geoSiteShow,
+  edit: geoSiteEdit,
+  update: geoSiteUpdate,
   delete: geoSiteDelete
 };

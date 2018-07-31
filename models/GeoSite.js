@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 
 const reviewSchema = new mongoose.Schema({
   reviewedBy: {type: mongoose.Schema.ObjectId, ref: 'User'},
-  // user: { type: String, required: true },
-  // userName: String,
   rating: { type: Number, default: 0 },
   content: { type: String, required: true },
   upVotes: { type: Number, default: 0 },
@@ -23,7 +21,7 @@ const geoSiteSchema = new mongoose.Schema({
   region: String,
   images: [ {type: String } ],
   reviews: [ reviewSchema ],
-  createdBy: String,
+  createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'},
   mapLink: String
 }, { timestamps: true });
 

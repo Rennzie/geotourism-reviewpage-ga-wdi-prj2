@@ -6,6 +6,7 @@ const registrationController = require('../controllers/registrationController');
 const sessionController = require('../controllers/sessionController');
 const geoSiteController = require('../controllers/geoSiteController');
 const reviewController = require('../controllers/reviewController');
+const userProfileController = require('../controllers/userProfileController');
 
 //SECURE ROUTES
 function secureRoute(req, res, next){
@@ -35,6 +36,10 @@ router.route('/registration/new')
 router.route('/registration')
   .post(registrationController.create);
 
+//  --> User Profile
+router.route('/userprofile/:id')
+  .get(userProfileController.show);
+
 //  --> Sessions
 router.route('/session/new')
   .get(sessionController.new);
@@ -53,15 +58,19 @@ router.route('/geoSites')
 router.route('/geoSites/new')
   .get(secureRoute, geoSiteController.new);  //Add a new site
 
+router.route('/geoSites/:id/edit')
+  .get(geoSiteController.edit);
+
 router.route('/geoSites/:id')
   .get(geoSiteController.show)
+  .put(geoSiteController.update)
   .delete(geoSiteController.delete);
 
 //  --> Site Reviews
 router.route('/geoSites/:siteId/review/new')
   .get(secureRoute, reviewController.new);
 
-router.route('/geoSite/:siteId/review')
+router.route('/geoSites/:siteId/review')
   .post(secureRoute, reviewController.create);
 
 router.route('/geoSites/:siteId/review/:reviewId')

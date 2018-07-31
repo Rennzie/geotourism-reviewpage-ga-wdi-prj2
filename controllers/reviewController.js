@@ -29,6 +29,14 @@ function siteReviewEdit( req, res ){
 }
 
 function siteReviewUpdate( req, res ){
+  GeoSite
+    .findById(req.params.siteId)
+    .then(geoSite => {
+      geoSite.reviews.id(req.params.reviewId).content = req.body.content;
+      geoSite.reviews.id(req.params.reviewId).rating = req.body.rating;
+      return geoSite.save();
+    })
+    .then(geoSite => res.redirect(`/geoSites/${geoSite.id}`));
   console.log('about to update review');
 }
 
