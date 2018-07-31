@@ -12,8 +12,12 @@ const reviewSchema = new mongoose.Schema({
 
 reviewSchema.virtual('ratingSymbol')
   .get(function(){
-
     return getSymbol(this.rating);
+  });
+
+reviewSchema.virtual('reviewedSubmitted')
+  .get(function(){
+    return this.createdAt.getFullYear();
   });
 
 const geoSiteSchema = new mongoose.Schema({
@@ -59,6 +63,11 @@ geoSiteSchema.virtual('formattedAge')
     }else{
       return `${this.age} Yrs`;
     }
+  });
+
+geoSiteSchema.virtual('yearAdded')
+  .get(function(){
+    return this.createdAt.getFullYear();
   });
 
 

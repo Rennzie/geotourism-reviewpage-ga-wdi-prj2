@@ -1,9 +1,17 @@
 <div class="container">
   <%# title and rating (header) %>
+  <div class="level"> </div>
   <div class="level">
       <div class="level-item"> <h1 class="title is-1"><%=geoSite.name%></h1> </div>
       <div class="level-item">
-        <p class="sub-title">Rating: <%=geoSite.averageRating.symbol%></p>
+        <p class="sub-title is-1">Rating: <%=geoSite.averageRating.symbol%></p>
+      </div>
+      <div class="level-item">
+        <form  action="/followSite" method="POST">
+          <input type="hidden" name="site" value="<%=geoSite%>">
+          <input type="hidden" name="userId" value="<%=locals.user.id%>">
+          <button class="button is-info">Follow</button>
+        </form>
       </div>
   </div>
 
@@ -12,8 +20,12 @@
     <div class="column is-half">
       <img class="image show-image" src="<%=geoSite.coverPic%>">
     </div>
+
     <div class="column is-half">
       <a href="#">Google Map Link</a>
+      <div id="map-<%=geoSite.name%>" >
+
+      </div>
     </div>
   </div>
 

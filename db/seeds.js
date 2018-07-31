@@ -12,6 +12,15 @@ GeoSite.collection.drop();
 User
   .create([
     {
+      profilePic: 'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-1/p320x320/34581767_10155299347870957_9209563081342976000_n.jpg?_nc_cat=0&oh=6c80ff9403974852fae22669c44c8298&oe=5BD6E5A5',
+      firstName: 'Kristi',
+      surname: 'Sayer',
+      userName: 'Alice18',
+      email: 'alice18@gmail.com',
+      password: 'pass',
+      passwordConfirmation: 'pass',
+      isGeologist: false
+    },{
       profilePic: 'https://avatars0.githubusercontent.com/u/32762874?s=460&v=4',
       firstName: 'Sean',
       surname: 'Rennie',
@@ -67,7 +76,7 @@ User
             isGeo: true,
             title: '<review title goes here>'
           },{
-            reviewedBy: users[2].id,
+            reviewedBy: users[3].id,
             rating: 5,
             content: 'This review means absolutely nothing and should be completely ignored by everyone and anyone',
             isGeo: true,
@@ -145,7 +154,7 @@ User
             isGeo: true,
             title: '<review title goes here>'
           },{
-            reviewedBy: users[0].id,
+            reviewedBy: users[3].id,
             rating: 3,
             content: 'This review means absolutely nothing and should be completely ignored by everyone and anyone',
             isGeo: true,
@@ -235,7 +244,7 @@ User
           rockTypes: ['sandstone', 'basalt', 'metamorphic', 'mylonite', 'igneous', 'pyrite', 'shale', 'schist', 'greenstone', 'porphyry'],
           createdBy: users[1].id,
           reviews: [{
-            reviewedBy: users[0].id,
+            reviewedBy: users[3].id,
             rating: 4,
             content: 'This review means absolutely nothing and should be completely ignored by everyone and anyone',
             isGeo: true,
@@ -283,7 +292,7 @@ User
             isGeo: true,
             title: '<review title goes here>'
           },{
-            reviewedBy: users[2].id,
+            reviewedBy: users[3].id,
             rating: 5,
             content: 'This review means absolutely nothing and should be completely ignored by everyone and anyone',
             isGeo: true,

@@ -1,4 +1,9 @@
+<%if(locals.isLoggedIn){%>
+  <% include ../pages/home %>
+<%}%>
+
 <div class="container">
+  <div class="level"> </div>
   <div class="columns ">
     <div class="column">
 
@@ -6,8 +11,6 @@
         <input class="input is-half is-medium" type="text" placeholder="Search">
 
       </div>
-
-      <hr>
 
       <% geoSites.forEach( geoSite => { %>
         <div class="level columns">
@@ -30,7 +33,7 @@
             <div >
               <p class="sub-title">Rating: <%=geoSite.averageRating.symbol%></p>
 
-              <a href="<%=geoSite.mapLink%>">Google Maps</a>
+              <a target="_blank" class="button is-text" href="<%=geoSite.mapLink%>">Google Maps</a>
             </div>
           </div>
         </div>

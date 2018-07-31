@@ -17,6 +17,15 @@ const User = require('./models/user');
 mongoose.Promise = require('bluebird');
 mongoose.connect(DB_URI);
 
+//LOCALS
+
+// app.locals.mapInit = function(mapDiv){
+//   const map = new google.maps.Map(document.getElementById(`${mapDiv}`), {
+//     center: {lat: -34.397, lng: 150.644},
+//     zoom: 8
+//   });
+// };
+
 // LAYOUTS
 app.set('view engine', 'ejs');
 app.use(expressLayouts);

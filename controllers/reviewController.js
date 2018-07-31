@@ -1,4 +1,5 @@
 const GeoSite = require('../models/geoSite');
+const User = require('../models/user');
 
 function siteReviewNew( req, res ){
   GeoSite

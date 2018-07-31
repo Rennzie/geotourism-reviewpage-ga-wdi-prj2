@@ -7,6 +7,7 @@ const sessionController = require('../controllers/sessionController');
 const geoSiteController = require('../controllers/geoSiteController');
 const reviewController = require('../controllers/reviewController');
 const userProfileController = require('../controllers/userProfileController');
+const followController = require('../controllers/followController');
 
 //SECURE ROUTES
 function secureRoute(req, res, next){
@@ -80,6 +81,9 @@ router.route('/geoSites/:siteId/review/:reviewId')
 router.route('/geoSites/:siteId/review/:reviewId/edit')
   .get(secureRoute, reviewController.edit);
 
+//  --> Following
+router.route('/followSite')
+  .post(followController.site);
 
 
 module.exports = router;

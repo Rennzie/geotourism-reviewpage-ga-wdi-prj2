@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const GeoSite = require('./geoSite');
+
 const userSchema = new mongoose.Schema({
   profilePic: String,
   firstName: { type: String },
@@ -14,17 +16,37 @@ const userSchema = new mongoose.Schema({
   isGeologist: {type: Boolean, default: false}
 }, { timestamps: true });
 
-//Hashed password varification
+//Hashed password verification
 userSchema.methods.validatePassword = function(password){
   //compare the password from the form against the has in the db
   return bcrypt.compareSync(password, this.password);
 };
 
-//PASSWORD CONFIRMATION VALIDATION
+//methods
+
+userSchema.methods.reviewsCreated = function() {
+  return GeoSite
+    .find()
+    .then(geoSites => {
+      return geoSites
+        .reduce((arr, geoSite) =>
+          arr.concat(geoSite.reviews), [])
+        .filter(review => review.reviewedBy.toString() === this.id.toString());
+    });
+};
+
+////////////--VIRTUALS--//////////////
 userSchema.virtual('passwordConfirmation')
   .set(function(passwordConfirmation){
     this._passwordConfirmation = passwordConfirmation;
   });
+
+userSchema.virtual('memberSince')
+  .get(function(){
+    return this.createdAt.getFullYear();
+  });
+
+
 
 //Pre validation hooks
 userSchema.pre('validation', function(next){

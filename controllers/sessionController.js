@@ -1,7 +1,8 @@
 const User = require('../models/user');
 
 function sessionNew( req, res ){
-  res.render('sessions/new');
+  const prePage = req.headers.referer;
+  res.render('sessions/new', { prePage });
 }
 
 function sessionCreate( req, res ){
@@ -13,8 +14,16 @@ function sessionCreate( req, res ){
         // console.log('No username or passwords dont match');
         res.status(401).render('sessions/new', {message: 'Try that again'});
       }else{
-        req.session.userId = user.id;
-        res.redirect('/');
+        const prevPage = req.body.prevPage;
+        console.log(prevPage);
+        if(prevPage === 'http://localhost:8000/'){
+          req.session.userId = user.id;
+          res.redirect('/geoSites');
+        }else{
+          req.session.userId = user.id;
+          res.redirect(req.body.prevPage);
+
+        }
       }
     });
 }
