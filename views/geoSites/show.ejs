@@ -3,7 +3,7 @@
   <div class="level">
       <div class="level-item"> <h1 class="title is-1"><%=geoSite.name%></h1> </div>
       <div class="level-item">
-        <p class="sub-title">Rating: <%=geoSite.averageRating%></p>
+        <p class="sub-title">Rating: <%=geoSite.averageRating.symbol%></p>
       </div>
   </div>
 
@@ -40,7 +40,7 @@
       <div class="level">
         <div class="level-left">
           <div class="level-item">
-            <p class="header">Age: <%=geoSite.age%></p>
+            <p class="header">Age: <%=geoSite.formattedAge%></p>
           </div>
           <div class="level-item">
             <p class="header">Period: <%=geoSite.period%></p>

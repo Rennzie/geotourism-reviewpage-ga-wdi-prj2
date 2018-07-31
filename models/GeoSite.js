@@ -42,7 +42,23 @@ geoSiteSchema.virtual('averageRating')
 
     const roundedAverage = (reviewSum/this.reviews.length).toFixed(2);
 
-    return getSymbol(roundedAverage);
+    return {symbol: getSymbol(roundedAverage), avgRating: roundedAverage};
+  });
+
+//format that age to 1000,000,000 become 1Ga
+//  --> if > 1billion then age/1billtion return newAge + Ga
+
+geoSiteSchema.virtual('formattedAge')
+  .get(function(){
+    if(this.age >= 1000000000){
+      return `${(this.age/1000000000).toFixed(1)} Ga`;
+    }else if(this.age >= 1000000){
+      return `${(this.age/1000000).toFixed(1)} Ma`;
+    }else if(this.age >= 1000){
+      return `${(this.age/1000).toFixed(1)} Ka`;
+    }else{
+      return `${this.age} Yrs`;
+    }
   });
 
 
@@ -51,6 +67,8 @@ geoSiteSchema.virtual('averageRating')
 module.exports = mongoose.model('GeoSite', geoSiteSchema);
 
 
+
+/////-userful function-///////////
 
 function getSymbol(rating){
   let ratingSymbols = rating;
