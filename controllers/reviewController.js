@@ -13,6 +13,7 @@ function siteReviewCreate ( req, res ){
     .then(geoSite =>{
       geoSite.reviews.push(req.body);
       console.log('We created a review:', req.body);
+      console.log('the rating was a:', req.body);
       return geoSite.save();
     })
     .then(geoSite => res.redirect(`/geoSites/${geoSite.id}`))

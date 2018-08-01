@@ -1,23 +1,21 @@
-
 <div class="modal is-active">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">Login</p>
-      <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
       <form action="/session" method="POST">
 
         <div class="field">
-          <label class="label" for="userName">User Name</label>
+          <label class="label" for="userName">User Name<span class="has-text-danger">*</span> </label>
           <div class="control">
             <input class="input" name="userName" type="text" placeholder="JohnnyRocks01">
           </div>
         </div>
 
         <div class="field">
-          <label class="label" for="password">Password (req)</label>
+          <label class="label" for="password">Password <span class="has-text-danger">*</span> </label>
           <div class="control">
             <input class="input" name="password" type="password">
           </div>

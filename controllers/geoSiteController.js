@@ -1,7 +1,8 @@
 const GeoSite = require('../models/geoSite');
 
 function geoSiteNew( req, res ){
-  res.render('geoSites/new');
+  const prevPage = req.headers.referer;
+  res.render('geoSites/new', {prevPage});
 }
 
 
@@ -16,12 +17,14 @@ function geoSiteIndex( req, res ){
 }
 
 function geoSiteCreate( req, res ){
+  req.body.createdBy = req.session.userId;
   GeoSite
     .create( req.body )
     .then( geoSite => {
+      const prevPage = req.body.prevPage;
       console.log('Added a new Geo Site: ', geoSite);
       // req.flash('success', 'You created a new site');
-      res.redirect('/geoSites');
+      res.redirect(prevPage);
     })
     .catch((err) => res.status(500).send(err));
 }
