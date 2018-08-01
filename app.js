@@ -18,22 +18,12 @@ const User = require('./models/user');
 mongoose.Promise = require('bluebird');
 mongoose.connect(DB_URI);
 
-//LOCALS
-
-// app.locals.mapInit = function(mapDiv){
-//   const map = new google.maps.Map(document.getElementById(`${mapDiv}`), {
-//     center: {lat: -34.397, lng: 150.644},
-//     zoom: 8
-//   });
-// };
-
 // LAYOUTS
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 app.set('views', `${__dirname}/views`); //this is the default so not really necessary to include
 
 // STATIC FILES
-// app.use('/styles', express.static(__dirname + '/public/styles'));
 app.use(express.static(`${__dirname}/public`));
 
 //MIDDLE-WARE
@@ -69,11 +59,8 @@ app.use((req, res, next) => {
     });
 });
 
-//flash needs to be below the sesion Middleware
-
+//FLASH MESSAGES
 app.use(flash()); //flash is a function which needs to be invoked for help with error messages
-
-
 
 //ROUTER
 app.use(router);

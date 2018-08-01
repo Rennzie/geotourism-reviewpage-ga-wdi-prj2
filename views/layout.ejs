@@ -5,16 +5,9 @@
 
   <body>
     <% include ./partials/_header %>
-
-    <% for(const type in messages){ %>
-      <div id="noti-message" class="notification is-<%=type %> is-marginless">
-        <button class="delete"></button>
-        <%=messages[type] %>
-      </div>
-    <% } %>
+    <% include ./partials/_notifications %>
 
     <%- body %>
-
 
     <% include ./partials/_footer %>
   </body>

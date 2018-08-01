@@ -6,17 +6,23 @@
 .avatar {
   border-radius: 50%; }
 
-#noti-message {
-  position: absolute;
-  top: 50;
-  width: 500px;
-  z-index: 1; }
-
 .hero {
   background-image: url("https://www.rei.com/adventures/assets/adventures/images/trip/core/northamerica/aza_hero");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
+
+#home-title {
+  font-size: 7rem;
+  text-shadow: 1px 1px 2px black; }
+
+#home-title-mobile {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-shadow: 1px 1px 2px white; }
+
+#home-subtitle {
+  text-shadow: 1px 1px 2px black; }
 
 .show-image {
   width: 100%;
@@ -29,6 +35,11 @@
 .index-image {
   width: 100%;
   height: auto; }
+
+#noti-message {
+  position: absolute;
+  top: 50;
+  z-index: 1; }
 
 /*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {

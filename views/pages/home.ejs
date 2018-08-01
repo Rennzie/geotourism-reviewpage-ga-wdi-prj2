@@ -1,15 +1,18 @@
 <section class="hero is-large">
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title is-1">
+      <h1 id="home-title" class="title is-hidden-touch has-text-white-ter">
         Nice Rocks!
       </h1>
-      <h2 class="subtitle">
+      <h1 id="home-title-mobile" class="title is-1 is-hidden-desktop">
+        Nice Rocks!
+      </h1>
+      <h2 id="home-subtitle" class="subtitle is-3 has-text-white-ter has-text-weight-bold">
         Seen it? Rocked? Review it!
       </h2>
       <% if(!locals.isLoggedIn){ %>
-        <a href="/registration/new"> Sign Up</a>
-        <a href="/session/new"> Login</a>
+        <a class="button is-dark is-large" href="/registration/new"> Sign Up</a>
+        <a class="button is-dark is-large" href="/session/new"> Login</a>
       <% } %>
     </div>
   </div>
