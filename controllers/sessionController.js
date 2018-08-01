@@ -17,6 +17,7 @@ function sessionCreate( req, res ){
         const prevPage = req.body.prevPage;
         console.log(prevPage);
         req.session.userId = user.id;
+        req.flash('success', `Welcome back ${req.body.userName}`);
         if(prevPage === 'http://localhost:8000/'){
           res.redirect('/geoSites');
         }else if(prevPage.match(/registration/)){
@@ -31,7 +32,7 @@ function sessionCreate( req, res ){
 
 function sessionDelete( req, res ){
   return req.session.regenerate(() => {  //this gives a brand new cookie
-    //req.flash('danger', 'You have been logged out!');
+    req.flash('danger', 'You have been logged out!');
     res.redirect('/');
   });
 }

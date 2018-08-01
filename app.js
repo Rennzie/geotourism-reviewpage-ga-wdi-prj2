@@ -8,6 +8,7 @@ const morgan = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const methodOverride = require('method-override');
+const flash = require('express-flash');
 
 //INTERNAL MODULES
 const { PORT, DB_URI } =  require('./config/environments.js');
@@ -67,6 +68,11 @@ app.use((req, res, next) => {
       next();
     });
 });
+
+//flash needs to be below the sesion Middleware
+
+app.use(flash()); //flash is a function which needs to be invoked for help with error messages
+
 
 
 //ROUTER

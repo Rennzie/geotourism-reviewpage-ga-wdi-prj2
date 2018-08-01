@@ -6,6 +6,12 @@
 .avatar {
   border-radius: 50%; }
 
+#noti-message {
+  position: absolute;
+  top: 50;
+  width: 500px;
+  z-index: 1; }
+
 .hero {
   background-image: url("https://www.rei.com/adventures/assets/adventures/images/trip/core/northamerica/aza_hero");
   background-position: center;

@@ -20,6 +20,7 @@ function geoSiteCreate( req, res ){
     .create( req.body )
     .then( geoSite => {
       console.log('Added a new Geo Site: ', geoSite);
+      // req.flash('success', 'You created a new site');
       res.redirect('/geoSites');
     })
     .catch((err) => res.status(500).send(err));
