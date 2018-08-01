@@ -7,7 +7,8 @@ const reviewSchema = new mongoose.Schema({
   upVotes: { type: Number, default: 0 },
   downVotes: { type: Number, default: 0 },
   accessibility: String,
-  tourGuideAvailability: Boolean
+  tourGuideAvailability: Boolean,
+  title: String
 }, { timestamps: true });
 
 reviewSchema.virtual('ratingSymbol')
@@ -19,6 +20,26 @@ reviewSchema.virtual('reviewedSubmitted')
   .get(function(){
     return this.createdAt.getFullYear();
   });
+
+reviewSchema.virtual('daysAgoCreated')
+  .get(function(){
+    //Get 1 day in milliseconds
+    const oneDay=1000*60*60*24;
+    const date2 = new Date();
+
+    // Convert both dates to milliseconds
+    const date1Ms = this.createdAt.getTime();
+    const date2Ms = date2.getTime();
+
+    // Calculate the difference in milliseconds
+    const differenceMs = date2Ms - date1Ms;
+
+    // NOTE: YOU CAN FORMAT DEPENDING ON IF > 24 HOURS > 364 DAYS ETC
+
+    // Convert back to days and return
+    return Math.round(differenceMs/oneDay);
+  });
+
 
 const geoSiteSchema = new mongoose.Schema({
   coverPic: {type: String, required: true},

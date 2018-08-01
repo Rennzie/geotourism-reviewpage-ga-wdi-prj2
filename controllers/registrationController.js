@@ -9,7 +9,7 @@ function registrationCreate( req, res){
     .create( req.body )
     .then( user => {
       console.log('We have created a new user:', user);
-      res.redirect('/');
+      res.redirect('/session/new');
     })
     .catch( () => res.status(500).redirect('/registration/new'));
 }

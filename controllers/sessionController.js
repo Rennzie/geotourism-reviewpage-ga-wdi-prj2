@@ -16,11 +16,12 @@ function sessionCreate( req, res ){
       }else{
         const prevPage = req.body.prevPage;
         console.log(prevPage);
+        req.session.userId = user.id;
         if(prevPage === 'http://localhost:8000/'){
-          req.session.userId = user.id;
           res.redirect('/geoSites');
-        }else{
-          req.session.userId = user.id;
+        }else if(prevPage.match(/registration/)){
+          res.redirect(`/userprofile/${user.id}`);
+        } else{
           res.redirect(req.body.prevPage);
 
         }

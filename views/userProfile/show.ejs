@@ -7,20 +7,21 @@
     <div class="column is-one-third">
       <article class="media">
         <figure class="media-left">
-          <p class="image is-250x250">
+          <p class="image is-128x128">
             <img src="<%=_user.profilePic%>">
           </p>
         </figure>
         <div class="media-content">
           <div class="content">
-            <p>
+            <p class="title is-4">
               <strong><%=_user.userName%></strong>
-              <br>
-              <small><%=_user.firstName%> <%= _user.surname%></small>
             </p>
+            <p><%=_user.firstName%> <%= _user.surname%></p>
+
           </div>
         </div>
       </article>
+      <div class="level"> </div>
       <p class="header"><strong>Member since:</strong> <%=_user.memberSince%><p>
       <%if(_user.isGeologist){%>
         <p class="header"> Is a geoloigst by trade ⚒</p>
@@ -36,7 +37,7 @@
 
       <hr>
 
-      <a class="button is-text"href="/userprofile/<%=_user.id%>/edit">Edit Profile</a>
+    <!--  <a class="button is-text"href="/userprofile/<%=_user.id%>/edit">Edit Profile</a>-->
     </div>
 
     <div class="column is-two-third">
@@ -46,7 +47,7 @@
         <div class="level-item">
 
           <p class="header"><%=_user.userName%> has not followed any geoSites yet.
-            <a class=" is-text"href="/userprofile/<%=_user.id%>/edit">Click</a>
+            <a class=" is-text"href="/geoSites">Click</a>
             to see all the sites
           </p>
         </div>
@@ -58,7 +59,7 @@
       <div class="level">
         <div class="level-item">
           <p class="header"><%=_user.userName%> has not reviewd any geoSites yet.
-            <a class=" is-text"href="/userprofile/<%=_user.id%>/edit">Click</a>
+            <a class=" is-text"href="/geoSites">Click</a>
             to see all the sites
           </p>
         </div>
