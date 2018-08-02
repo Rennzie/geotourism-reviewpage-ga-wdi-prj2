@@ -3,8 +3,8 @@ const {DB_URI } = require('../config/environments');
 mongoose.Promise = require('bluebird');
 mongoose.connect(DB_URI);
 
-const User = require('/models/user');
-const GeoSite = require('/models/geoSite');
+const User = require('../models/user');
+const GeoSite = require('../models/geoSite');
 
 User.collection.drop();
 GeoSite.collection.drop();
