@@ -22,7 +22,7 @@
       </div>
       <div class="navbar-end">
         <% if(!locals.isLoggedIn){%>
-          <a class='navbar-item' href="/" >Login/Sign Up</a>
+          <a class='navbar-item' href="/session/new" >Login/Sign Up</a>
         <%} else{%>
           <a class="is-hidden-touch" href="/userprofile/<%=locals.user.id%>">
             <figure class="avatar-container image is-48x48">

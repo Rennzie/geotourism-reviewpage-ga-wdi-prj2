@@ -23,6 +23,7 @@
           </div>
         </div>
 
+        <hr>
 
         <div class="field">
           <label class="label" for="country">Country<span class="has-text-danger">*</span> </label>
@@ -78,6 +79,8 @@
           </div>
         </div>
 
+        <hr>
+
         <div class="field">
           <label class="label" for="description">Description</label>
           <div class="control">
@@ -93,19 +96,39 @@
         </div>
 
 
-        <div class="field">
-          <label class="label" for="images">Additional Images (urls comma seperated)</label>
-          <div class="control">
-            <input class="input" name="images" type="text">
+        <hr>
+        <label class="label">Coordinates in Decimal Degrees (use negative number for W and S)</label>
+        <div class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <div class="field">
+                <label class="label" for="lat">Latitude</label>
+                <div class="control">
+                  <input class="input" name="lat" type="number" placeholder="-24.67 (for 24.67 West)">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="level-right">
+            <div class="level-item">
+              <div class="field">
+                <label class="label" for="long">Longitude</label>
+                <div class="control">
+                  <input class="input" name="long" type="number" placeholder="40.003 (for 40.003 North)">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="field">
-          <label class="label" for="mapLink">Google Earth Map Link</label>
-          <div class="control">
-            <input class="input" name="mapLink" type="text" placeholder="maps.google.com">
-          </div>
+        <hr>
+
+      <div class="field">
+        <label class="label" for="images">Additional Images (urls comma seperated)</label>
+        <div class="control">
+          <input class="input" name="images" type="text">
         </div>
+      </div>
 
       </section>
       <footer class="modal-card-foot">
@@ -114,7 +137,7 @@
             <button class="button is-link">Submit</button>
           </div>
           <div class="control">
-            <a href="/" class="button is-text">Cancel</a>
+            <a href="<%=prevPage%>" class="button is-text">Cancel</a>
           </div>
         </div>
 

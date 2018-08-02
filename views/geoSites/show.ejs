@@ -4,7 +4,7 @@
   <div class="level">
     <div class="level-item"> <h1 class="title is-1"><%=geoSite.name%></h1> </div>
     <div class="level-item">
-      <p class="sub-title is-1">Rating: <%=geoSite.averageRating.symbol%></p>
+      <p class="sub-title is-1">Volcano Rating: <%=geoSite.averageRating.symbol%></p>
     </div>
 
   </div>
@@ -74,7 +74,7 @@
 
       <%# additional photos %>
       <div class="column is-half">
-        <button class="is-hidden-desktop is-info" name="button">View More Photos</button>
+        <button class=" button is-hidden-desktop is-primary "disabled name="button">View More Photos</button>
         <%# do a forEach() here %>
         <div class="columns is-hidden-mobile is-centered">
           <div class="column is-start is-multiline">
@@ -127,12 +127,12 @@
           }
 
 
+          </script>
+          <!--Load the API from the specified URL
+          * The async attribute allows the browser to render the page while the API loads
+          * The key parameter will contain your own API key (which is not needed for this tutorial)
+          * The callback parameter executes the initMap() function
+        -->
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ_QH7WUOknfpY-UmWGxq19xO7kqysh0o&callback=initMap">
         </script>
-        <!--Load the API from the specified URL
-        * The async attribute allows the browser to render the page while the API loads
-        * The key parameter will contain your own API key (which is not needed for this tutorial)
-        * The callback parameter executes the initMap() function
-      -->
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ_QH7WUOknfpY-UmWGxq19xO7kqysh0o&callback=initMap">
-    </script>

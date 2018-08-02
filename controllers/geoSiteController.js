@@ -2,6 +2,7 @@ const GeoSite = require('../models/geoSite');
 
 function geoSiteNew( req, res ){
   const prevPage = req.headers.referer;
+  console.log('the prev page is : ', prevPage);
   res.render('geoSites/new', {prevPage});
 }
 
@@ -23,7 +24,7 @@ function geoSiteCreate( req, res ){
     .then( geoSite => {
       const prevPage = req.body.prevPage;
       console.log('Added a new Geo Site: ', geoSite);
-      // req.flash('success', 'You created a new site');
+      req.flash('success', 'You created a new site');
       res.redirect(prevPage);
     })
     .catch((err) => res.status(500).send(err));
@@ -41,10 +42,11 @@ function geoSiteShow( req, res ){
 }
 
 function geoSiteEdit(req, res){
+  const prevPage = req.headers.referer;
   GeoSite
     .findById(req.params.id)
     .then(geoSite => {
-      res.render('geoSites/edit', { geoSite });
+      res.render('geoSites/edit', { geoSite, prevPage });
     });
 }
 

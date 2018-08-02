@@ -7,9 +7,9 @@
   <div class="level-right">
     <div class="level-item">
       <%if(!locals.isLoggedIn){%>
-        <a class="button is-large is-warning" href="/session/new"> Login to review</a>
+        <a class="button is-medium is-link" href="/session/new"> Login to review</a>
       <%}else{%>
-        <a class="button is-large is-success" href="/geoSites/<%=geoSite.id%>/review/new"> Add a review</a>
+        <a class="button is-medium is-link" href="/geoSites/<%=geoSite.id%>/review/new"> Add a review</a>
       <%}%>
     </div>
   </div>

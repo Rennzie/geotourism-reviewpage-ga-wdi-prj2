@@ -1,8 +1,9 @@
 <%if(locals.isLoggedIn){%>
   <% include ../pages/home %>
+  <hr>
 <%}%>
 
-<div class="container">
+<div class="container is-touch">
   <div class="level"> </div>
   <div class="columns ">
     <div class="column">
@@ -32,7 +33,7 @@
             <div >
               <p class="sub-title">Rating: <%=geoSite.averageRating.symbol%></p>
 
-              <a target="_blank" class="button is-text" href="<%=geoSite.mapLink%>">Google Maps</a>
+              <a target="_blank" class=" is-text is-link" href="<%=geoSite.mapLink%>">Google Maps</a>
             </div>
           </div>
         </div>

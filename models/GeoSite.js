@@ -119,15 +119,15 @@ function getSymbol(rating){
   let ratingSymbols = rating;
 
   if(ratingSymbols >= 5){
-    ratingSymbols = '⚒ ⚒ ⚒ ⚒ ⚒';
+    ratingSymbols = '🌋 🌋 🌋 🌋 🌋';
   }else if(ratingSymbols >= 4){
-    ratingSymbols = '⚒ ⚒ ⚒ ⚒';
+    ratingSymbols = '🌋 🌋 🌋 🌋 🗻';
   }else if(ratingSymbols >= 3){
-    ratingSymbols = '⚒ ⚒ ⚒';
+    ratingSymbols = '🌋 🌋 🌋 🗻 🗻';
   }else if(ratingSymbols >= 2){
-    ratingSymbols = '⚒ ⚒';
+    ratingSymbols = '🌋 🌋 🗻 🗻 🗻';
   }else if(ratingSymbols >= 1){
-    ratingSymbols = '⚒';
+    ratingSymbols = '🌋 🗻 🗻 🗻 🗻';
   }else{
     ratingSymbols = '😨';
   }
