@@ -32,6 +32,10 @@
   width: 30%;
   height: auto; }
 
+#map {
+  width: 100%;
+  height: 350px; }
+
 .index-image {
   width: 100%;
   height: auto; }

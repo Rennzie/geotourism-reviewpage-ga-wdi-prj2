@@ -25,5 +25,4 @@ document.addEventListener('DOMContentLoaded', () => {
   notificationClose.addEventListener('click', () => {
     notification.classList.add('is-invisible');
   });
-
 });

@@ -1,8 +1,8 @@
 const User = require('../models/user');
 
 function sessionNew( req, res ){
-  const prePage = req.headers.referer;
-  res.render('sessions/new', { prePage });
+  const prevPage = req.headers.referer;
+  res.render('sessions/new', { prevPage });
 }
 
 function sessionCreate( req, res ){

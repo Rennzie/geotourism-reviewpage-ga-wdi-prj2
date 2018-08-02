@@ -23,8 +23,6 @@ reviewSchema.virtual('reviewedSubmitted')
 
 reviewSchema.virtual('daysAgoCreated')
   .get(function(){
-    //Get 1 day in milliseconds
-    const oneDay=1000*60*60*24;
     const date2 = new Date();
 
     // Convert both dates to milliseconds
@@ -32,13 +30,28 @@ reviewSchema.virtual('daysAgoCreated')
     const date2Ms = date2.getTime();
 
     // Calculate the difference in milliseconds
-    const differenceMs = date2Ms - date1Ms;
+    const timeDifference = date2Ms - date1Ms;
+    const oneMinute = 1000*60;
+    const oneHour = oneMinute*60;
+    const oneDay = oneHour*24;
+    const oneYear = oneDay*365;
 
-    // NOTE: YOU CAN FORMAT DEPENDING ON IF > 24 HOURS > 364 DAYS ETC
+    const daysAgo = timeDifference/oneDay;
+    const hoursAgo = timeDifference/oneHour;
+    const minutesAgo = timeDifference/oneMinute;
 
-    // Convert back to days and return
-    return Math.round(differenceMs/oneDay);
-  });
+    if(daysAgo > 365){
+      return `${Math.round(daysAgo*oneYear)}Yrs Ago`;
+    }else if(daysAgo >= 1){
+      return `${Math.round(daysAgo)} Days Ago`;
+    }else if(hoursAgo >= 1){
+      return `${Math.round(hoursAgo)} Hours Ago`;
+    }else if(minutesAgo >= 1){
+      return `${Math.round(minutesAgo)} Minutes Ago`;
+    }else{
+      return 'Now';
+    }
+  })
 
 
 const geoSiteSchema = new mongoose.Schema({
@@ -53,7 +66,9 @@ const geoSiteSchema = new mongoose.Schema({
   images: [ {type: String } ],
   reviews: [ reviewSchema ],
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'},
-  mapLink: String
+  mapLink: String,
+  lat: Number,
+  long: Number
 }, { timestamps: true });
 
 
@@ -98,7 +113,7 @@ module.exports = mongoose.model('GeoSite', geoSiteSchema);
 
 
 
-/////-userful function-///////////
+/////-useful functions-///////////
 
 function getSymbol(rating){
   let ratingSymbols = rating;
