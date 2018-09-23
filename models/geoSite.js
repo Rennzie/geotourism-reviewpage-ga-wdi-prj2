@@ -51,7 +51,7 @@ reviewSchema.virtual('daysAgoCreated')
     }else{
       return 'Now';
     }
-  })
+  });
 
 
 const geoSiteSchema = new mongoose.Schema({
