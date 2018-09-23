@@ -24,7 +24,6 @@ function sessionCreate( req, res ){
           res.redirect(`/userprofile/${user.id}`);
         } else{
           res.redirect(req.body.prevPage);
-
         }
       }
     });
